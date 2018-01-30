@@ -1,14 +1,14 @@
-# TypeScript Webpack Starter Project
+# TypeScript Webpack & React JS Starter Project
 
-This is a super simple, easy peasy lemon squeezy starter project for
-TypeScript 2.4+, using Webpack 3 for development & building and TSLint for
-code quality.
+This is a fork of my own `webpack-ts-kit` boilerplate project that takes the
+base setup and adds React into the mix.
 
 ## Key Features
 
 - Webpack v3+
-- TypeScript v2.4+ (dynamic imports to provide convenient bundle splitting)
+- TypeScript v2.6+ (with dynamic imports & bundle splitting)
 - TSLint
+- Mocha unit tests
 
 ## Commands
 
