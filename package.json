@@ -1,7 +1,7 @@
 {
-  "name": "webpack-ts-kit",
-  "version": "1.1.0",
-  "description": "A Webpack 3, TypeScript 2 starter kit",
+  "name": "webpack-ts-react-kit",
+  "version": "1.0.0",
+  "description": "A Webpack, TypeScript & React starter kit",
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --config webpack.config.js",
