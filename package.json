@@ -1,0 +1,51 @@
+{
+  "name": "webpack-ts-kit",
+  "version": "1.1.0",
+  "description": "A Webpack 3, TypeScript 2 starter kit",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server --config webpack.config.js",
+    "build": "npm run clean:build && NODE_ENV=production webpack --config webpack.config.js",
+    "lint": "npm run lint:ts",
+    "lint:ts": "tslint -c tslint.json --format stylish \"./src/*.ts*\"",
+    "test": "npm run clean:test && nyc mocha",
+    "test:watch": "mocha -w",
+    "clean:build": "rm -rf ./dist",
+    "clean:test": "rm -rf ./coverage"
+  },
+  "keywords": [
+    "webpack",
+    "typescript",
+    "starter kit",
+    "starter project",
+    "boilerplate"
+  ],
+  "author": "Aaron Leo Cooper <aaronleocooper@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/chai": "4.0.1",
+    "@types/mocha": "2.2.41",
+    "@types/node": "8.0.17",
+    "@types/sinon": "2.3.3",
+    "babel-core": "6.25.0",
+    "babel-loader": "7.1.1",
+    "babel-plugin-syntax-dynamic-import": "6.18.0",
+    "babel-preset-env": "1.6.0",
+    "babel-preset-es2015": "6.24.1",
+    "chai": "4.1.0",
+    "html-webpack-plugin": "2.29.0",
+    "mocha": "3.4.2",
+    "mocha-typescript": "1.1.7",
+    "nyc": "11.1.0",
+    "sinon": "2.4.1",
+    "source-map-support": "0.4.15",
+    "ts-loader": "2.3.1",
+    "ts-node": "3.3.0",
+    "tslint": "5.9.1",
+    "tslint-loader": "3.5.3",
+    "typescript": "2.6.2",
+    "uglifyjs-webpack-plugin": "0.4.6",
+    "webpack": "3.3.0",
+    "webpack-dev-server": "2.6.1"
+  }
+}

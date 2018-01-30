@@ -1,0 +1,23 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "module": "commonjs",
+    "noImplicitAny": true,
+    "sourceMap": true,
+    "noEmitOnError": true,
+    "experimentalDecorators": true,
+    "target": "es6",
+    "lib": [
+      "dom",
+      "es5",
+      "es2016"
+    ]
+  },
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "src/**/*.spec.*"
+  ]
+}
