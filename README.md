@@ -1,7 +1,7 @@
 # TypeScript Webpack & React JS Starter Project
 
 This is a fork of my own `webpack-ts-kit` boilerplate project that takes the
-base setup and adds React into the mix.
+base setup and adds **React JS** & friends into the mix.
 
 ## Key Features
 
@@ -9,6 +9,7 @@ base setup and adds React into the mix.
 - TypeScript v2.6+ (with dynamic imports & bundle splitting)
 - TSLint
 - Mocha unit tests
+- module generator script (see below)
 
 ## Commands
 
@@ -25,40 +26,32 @@ import ones to be aware of:
 
 `npm run test:watch` — Run tests continuously as files inside `src` change
 
+`npm run gen` — Generate a new component/container/page/redux file
+
+## Module Generator
+
+As mentioned, I've also thrown in a generator script. The purpose of this is
+to automate the creation of various kinds of modules. In the future I'll
+likely make this into its own NPM module.
+
+Run: `npm run gen` to start the generation prompt, you'll be asked a couple
+questions to choose the type of module to create and the name.
+
+For adding custom module types/names, `scripts/cc-config.json` can be
+edited.
+
 ## Project Status
 
-This little project/boilerplate is still in development and I wouldn't
-*yet* recommend it for primetime production apps, and will alsmost certainly
-not yet cover all bases when it comes to writing web apps.
-
-However, the goal for this project is to eventually make it into a
-developer's friend for fast development and provide convenient tooling for
-optimised, production-ready static assets.
+Ongoing development. After all, I'm still just dipping my toes into what
+TypeScript is capable of, in particular when combined with React JS.
 
 Suggestions and PRs are welcome!
 
-## Must-have goals checklist
-
-- [ ] Finish getting Webpack config set up with the desired features
-  - Stylesheet loader (SASS, CSS Modules, PostCSS)
-  - Static asset loaders (images, fonts, etc...)
-- [ ] Add testing suite with full TypeScript support
-- [ ] Research & add common TypeScript definitions modules
-
-## "Optimistic" goals checklist
-
-- [ ] CLI tool for code/module generation
-- [ ] Easy swapping of Webpack loaders in config
-
 ## About
 
-This was first created in a couple of spare hours for fun as a primer to
-Webpack v3 & TypeScript 2.4's new features.
-
-The speed at which it's now possible to set up a Webpack-based dev/prod
-setup goes to show that Webpack has come a long way (and keeps on going)
-towards being as developer-friendly as possible, giving us amazing tooling
-for little overhead during the initial setup.
+It was about time I got up to speed with how on earth TypeScript and React JS
+can be made to play nicely together; this project is the result of having a
+solid day and a half of tackling this synergy.
 
 **Developed by [Aaron Leo Cooper](http://webdevdiaries.com) for
 [2359Media](https://2359media.com)**
