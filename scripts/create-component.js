@@ -3,6 +3,7 @@ const prompt = require('prompt');
 const changeCase = require('change-case');
 
 const createFiles = require('./create-files');
+const fileTemplates = require('./file-templates');
 const config = require('./cc-config.json');
 
 const err = checkErrors(config);
@@ -51,7 +52,7 @@ prompt.get(
     const moduleName = `${changeCase.pascalCase(name)}${type.suffix || ''}`;
 
     const dir = path.join(__dirname, `../src/${type.dirname}`);
-    const componentDir = path.join(dir, moduleName);
+    const moduleDir = path.join(dir, moduleName);
 
     const extension = type.isReact
       ? 'tsx'
@@ -59,86 +60,30 @@ prompt.get(
 
     createFiles([
       {
-        dir: componentDir,
+        dir: moduleDir,
         filename: 'index.ts',
-        content: getIndex(moduleName)
+        content: fileTemplates.index(moduleName)
       },
       {
-        dir: componentDir,
+        dir: moduleDir,
         filename: `${moduleName}.${extension}`,
-        content: getComponent(moduleName)
+        content: fileTemplates.main(moduleName, type)
       },
       {
-        dir: componentDir,
+        dir: moduleDir,
         filename: `${moduleName}.spec.${extension}`,
-        content: getSpec(moduleName)
+        content: fileTemplates.spec(moduleName, type)
       }
     ])
       .then(() => {
-        console.info(`Created ${moduleName} ${type.name}!`);
+        console.info(`Created ${moduleName} ${type.name}!
+${moduleDir}`);
       })
       .catch((err) => {
         throw err;
       });
   }
 );
-
-function getIndex(name) {
-  return `import ${name} from './${name}';
-
-export default ${name};
-`;
-}
-
-function getComponent(name) {
-  return `import * as React from 'react';
-
-interface Props {}
-
-export default class ${name} extends React.Component<Props> {
-  render() {
-    const {} = this.props;
-
-    return (
-      <div />
-    );
-  }
-}
-`;
-}
-
-function getSpec(name, type) {
-  if (type.isReact) {
-    return `import * as React from 'react';
-import * as mocha from 'mocha';
-import { assert } from 'chai';
-import { shallow } from 'enzyme';
-
-import ${name} from './';
-
-const render = (props = {}) =>
-  shallow(
-    <${name}
-      {...props}
-    />
-  );
-
-suite('${type.name} - ${name}', () => {});
-
-test('defaults', () => {
-  const node = render();
-});`;
-  }
-
-  return `import * as mocha from 'mocha';
-import { assert } from 'chai';
-
-import ${name} from './';
-
-suite('${type.name} - ${name}', () => {});
-
-test('defaults', () => {});`;
-}
 
 function checkErrors(config) {
   if (!config.src) return new Error('cc-config.json has no "src" defined');

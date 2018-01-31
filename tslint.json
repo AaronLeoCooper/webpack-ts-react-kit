@@ -108,6 +108,9 @@
       "check-separator",
       "check-type"
     ],
-    "space-before-function-paren": [true, "never"]
+    "space-before-function-paren": [true, "never"],
+    "ter-indent": [true, 2, {
+      "SwitchCase": 1
+    }]
   }
 }

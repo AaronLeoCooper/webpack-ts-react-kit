@@ -76,6 +76,7 @@
     "@types/react-router": "4.0.21",
     "@types/react-router-redux": "5.0.11",
     "@types/redux": "3.6.0",
+    "@types/reselect": "2.2.0",
     "history": "4.7.2",
     "react": "16.2.0",
     "react-dom": "16.2.0",
@@ -83,6 +84,8 @@
     "react-redux": "5.0.6",
     "react-router": "4.2.0",
     "react-router-redux": "5.0.0-alpha.9",
-    "redux": "3.7.2"
+    "redux": "3.7.2",
+    "reselect": "3.0.1",
+    "styled-components": "3.1.4"
   }
 }

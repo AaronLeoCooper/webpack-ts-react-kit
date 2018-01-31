@@ -1,9 +1,29 @@
 {
   "src": "src",
   "types": [
-    { "name": "component", "dirname": "components", "isReact": true, "suffix": "" },
-    { "name": "container", "dirname": "containers", "isReact": true, "suffix": "Container" },
-    { "name": "page", "dirname": "pages", "isReact": true, "suffix": "Page" },
-    { "name": "redux", "dirname": "redux", "isReact": false, "suffix": "" }
+    {
+      "name": "component",
+      "dirname": "components",
+      "moduleType": "react",
+      "suffix": ""
+    },
+    {
+      "name": "container",
+      "dirname": "containers",
+      "moduleType": "react-container",
+      "suffix": "Container"
+    },
+    {
+      "name": "page",
+      "dirname": "pages",
+      "moduleType": "react",
+      "suffix": "Page"
+    },
+    {
+      "name": "redux",
+      "dirname": "redux",
+      "moduleType": "redux",
+      "suffix": ""
+    }
   ]
 }
