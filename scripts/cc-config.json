@@ -1,0 +1,9 @@
+{
+  "src": "src",
+  "types": [
+    { "name": "component", "dirname": "components", "isReact": true, "suffix": "" },
+    { "name": "container", "dirname": "containers", "isReact": true, "suffix": "Container" },
+    { "name": "page", "dirname": "pages", "isReact": true, "suffix": "Page" },
+    { "name": "redux", "dirname": "redux", "isReact": false, "suffix": "" }
+  ]
+}

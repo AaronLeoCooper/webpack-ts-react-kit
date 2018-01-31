@@ -37,22 +37,36 @@ const definePlugin = new webpack.DefinePlugin({
 const noEmitOnErrorsPlugin = new webpack.NoEmitOnErrorsPlugin();
 
 const htmlWebpackPlugin = new HtmlWebpackPlugin({
-  title: 'Sample TypeScript App',
+  template: './src/index.ejs',
   inject: true
 });
 
+const namedModulesPlugin = new webpack.NamedModulesPlugin();
+const hmrReplacementPlugin = new webpack.HotModuleReplacementPlugin();
 const uglifyWebpackPlugin = new UglifyWebpackPlugin();
 
-const prodPlugins = IS_PROD
+const envPlugins = IS_PROD
   ? [ uglifyWebpackPlugin ]
-  : [];
+  : [ hmrReplacementPlugin ];
+
+const plugins = [
+  definePlugin,
+  noEmitOnErrorsPlugin,
+  htmlWebpackPlugin,
+  namedModulesPlugin,
+  ...envPlugins
+];
 
 /**
  * Export config
  */
 module.exports = {
   devtool: IS_PROD ? 'source-map' : 'eval-source-map',
-  entry: `${srcDirRelative}/index.ts`,
+  entry: [
+    'react-hot-loader/patch',
+    require.resolve('react-dev-utils/webpackHotDevClient'),
+    `${srcDirRelative}/index.tsx`
+  ],
   output: {
     path: distDir,
     filename: '[name].[hash:5].js'
@@ -78,16 +92,15 @@ module.exports = {
         include: srcDir,
         exclude: /node_modules/,
         use: [
-          {
-            /**
-             * 2. Transpile ES6 + dynamic imports into ES5
-             */
-            loader: 'babel-loader',
-            options: {
-              presets: [ 'es2015' ],
-              plugins: [ 'babel-plugin-syntax-dynamic-import' ]
-            }
-          },
+          // /**
+          //  * 3. Transpile ES6 + dynamic imports into ES5
+          //  ---- currently not working with hot loader
+          //  */
+          // 'babel-loader',
+          /**
+           * 2. Add react hot loader (development)
+           */
+          'react-hot-loader/webpack',
           {
             /**
              * 1. Transpile TypeScript into ES6 + dynamic imports
@@ -103,15 +116,11 @@ module.exports = {
       }
     ]
   },
-  plugins: [
-    definePlugin,
-    noEmitOnErrorsPlugin,
-    htmlWebpackPlugin,
-    ...prodPlugins
-  ],
+  plugins,
   devServer: {
     contentBase: srcDir,
     compress: true,
-    port: 9000
+    port: 9000,
+    hot: true
   }
 };

@@ -1,22 +1,31 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "module": "commonjs",
+    "strict": true,
+    "strictNullChecks": true,
     "noImplicitAny": true,
-    "sourceMap": true,
     "noEmitOnError": true,
+    "sourceMap": true,
     "experimentalDecorators": true,
-    "target": "es6",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "jsx": "react",
+    "target": "es5",
     "lib": [
       "dom",
       "es5",
       "es2016"
+    ],
+    "typeRoots": [
+      "node_modules/@types",
+      "./@types"
     ]
   },
   "include": [
     "src/**/*"
   ],
   "exclude": [
+    "test",
     "node_modules",
     "src/**/*.spec.*"
   ]

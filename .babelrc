@@ -1,0 +1,15 @@
+{
+  "presets": [
+    ["es2015", { "modules": false }]
+  ],
+  "plugins": [
+    "babel-plugin-syntax-dynamic-import"
+  ],
+  "env": {
+    "production": {
+      "presets": [
+        "es2015", { "modules": false }
+      ]
+    }
+  }
+}
