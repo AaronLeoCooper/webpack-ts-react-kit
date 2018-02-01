@@ -9,7 +9,6 @@ base setup and adds **React JS** & friends into the mix.
 - TypeScript v2.6+ (with dynamic imports & bundle splitting)
 - TSLint
 - Mocha unit tests
-- module generator script (see below)
 
 ## Commands
 
@@ -26,19 +25,13 @@ import ones to be aware of:
 
 `npm run test:watch` — Run tests continuously as files inside `src` change
 
-`npm run gen` — Generate a new component/container/page/redux file
-
 ## Module Generator
 
-As mentioned, I've also thrown in a generator script. The purpose of this is
-to automate the creation of various kinds of modules. In the future I'll
-likely make this into its own NPM module.
+...will be coming soon!
 
-Run: `npm run gen` to start the generation prompt, you'll be asked a couple
-questions to choose the type of module to create and the name.
-
-For adding custom module types/names, `scripts/cc-config.json` can be
-edited.
+I build one originally to work inside this project, but have removed those
+source files and dependencies as I'm working on creating a dedicated CLI
+for that. It will be added back into this project as a dependency soon.
 
 ## Project Status
 
@@ -47,11 +40,16 @@ TypeScript is capable of, in particular when combined with React JS.
 
 Suggestions and PRs are welcome!
 
+## Todos
+
+- [ ] Hoist file generator logic & dependencies out of this repo into its
+own repo & NPM package
+
 ## About
 
 It was about time I got up to speed with how on earth TypeScript and React JS
 can be made to play nicely together; this project is the result of having a
-solid day and a half of tackling this synergy.
+solid couple of days of tackling this synergy.
 
 **Developed by [Aaron Leo Cooper](http://webdevdiaries.com) for
 [2359Media](https://2359media.com)**
